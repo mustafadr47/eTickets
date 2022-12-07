@@ -16,6 +16,10 @@ namespace eTickets.Models
         public DateTime EndDate { get; set; }
         public MovieCategory MovieCategory { get; set; }
         //Relationships
+        //public int ActorId { get; set; }
+
+        //public List<Actor> Actors { get; set; }
+
         public List<Actor_Movie> Actor_Movies { get; set; }
 
         //Cinema

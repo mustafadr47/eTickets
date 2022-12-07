@@ -1,6 +1,10 @@
 ﻿namespace eTickets.Data.Enums
 {
-    public class MovieCategory
+    public enum MovieCategory
     {
+       Action =1,//start index
+       Comedy,
+       Drama,
+       Documentary
     }
 }
