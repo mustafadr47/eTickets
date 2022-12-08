@@ -59,7 +59,7 @@ namespace eTickets.Migrations
 
                     b.HasIndex("MovieId");
 
-                    b.ToTable("Actor_Movies");
+                    b.ToTable("Actors_Movies");
                 });
 
             modelBuilder.Entity("eTickets.Models.Cinema", b =>
@@ -94,9 +94,6 @@ namespace eTickets.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CimemaId")
-                        .HasColumnType("int");
 
                     b.Property<int>("CinemaId")
                         .HasColumnType("int");
@@ -165,13 +162,13 @@ namespace eTickets.Migrations
             modelBuilder.Entity("eTickets.Models.Actor_Movie", b =>
                 {
                     b.HasOne("eTickets.Models.Actor", "Actor")
-                        .WithMany("Actor_Movies")
+                        .WithMany("Actors_Movies")
                         .HasForeignKey("ActorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("eTickets.Models.Movie", "Movie")
-                        .WithMany("Actor_Movies")
+                        .WithMany("Actors_Movies")
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -202,7 +199,7 @@ namespace eTickets.Migrations
 
             modelBuilder.Entity("eTickets.Models.Actor", b =>
                 {
-                    b.Navigation("Actor_Movies");
+                    b.Navigation("Actors_Movies");
                 });
 
             modelBuilder.Entity("eTickets.Models.Cinema", b =>
@@ -212,7 +209,7 @@ namespace eTickets.Migrations
 
             modelBuilder.Entity("eTickets.Models.Movie", b =>
                 {
-                    b.Navigation("Actor_Movies");
+                    b.Navigation("Actors_Movies");
                 });
 
             modelBuilder.Entity("eTickets.Models.Producer", b =>

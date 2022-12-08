@@ -5,6 +5,8 @@
        Action =1,//start index
        Comedy,
        Drama,
-       Documentary
+       Documentary,
+       Cartoon,
+       Horror
     }
 }

@@ -16,14 +16,10 @@ namespace eTickets.Models
         public DateTime EndDate { get; set; }
         public MovieCategory MovieCategory { get; set; }
         //Relationships
-        //public int ActorId { get; set; }
-
-        //public List<Actor> Actors { get; set; }
-
-        public List<Actor_Movie> Actor_Movies { get; set; }
+        public List<Actor_Movie> Actors_Movies { get; set; }
 
         //Cinema
-        public int CimemaId { get; set; }
+        public int CinemaId { get; set; }
         [ForeignKey("CinemaId")]
         public Cinema Cinema { get; set; }
 

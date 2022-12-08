@@ -12,8 +12,8 @@ using eTickets.Data;
 namespace eTickets.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221207212353_first")]
-    partial class first
+    [Migration("20221208192612_updateTable")]
+    partial class updateTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,7 +62,7 @@ namespace eTickets.Migrations
 
                     b.HasIndex("MovieId");
 
-                    b.ToTable("Actor_Movies");
+                    b.ToTable("Actors_Movies");
                 });
 
             modelBuilder.Entity("eTickets.Models.Cinema", b =>
@@ -97,9 +97,6 @@ namespace eTickets.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CimemaId")
-                        .HasColumnType("int");
 
                     b.Property<int>("CinemaId")
                         .HasColumnType("int");
@@ -168,13 +165,13 @@ namespace eTickets.Migrations
             modelBuilder.Entity("eTickets.Models.Actor_Movie", b =>
                 {
                     b.HasOne("eTickets.Models.Actor", "Actor")
-                        .WithMany("Actor_Movies")
+                        .WithMany("Actors_Movies")
                         .HasForeignKey("ActorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("eTickets.Models.Movie", "Movie")
-                        .WithMany("Actor_Movies")
+                        .WithMany("Actors_Movies")
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -205,7 +202,7 @@ namespace eTickets.Migrations
 
             modelBuilder.Entity("eTickets.Models.Actor", b =>
                 {
-                    b.Navigation("Actor_Movies");
+                    b.Navigation("Actors_Movies");
                 });
 
             modelBuilder.Entity("eTickets.Models.Cinema", b =>
@@ -215,7 +212,7 @@ namespace eTickets.Migrations
 
             modelBuilder.Entity("eTickets.Models.Movie", b =>
                 {
-                    b.Navigation("Actor_Movies");
+                    b.Navigation("Actors_Movies");
                 });
 
             modelBuilder.Entity("eTickets.Models.Producer", b =>
