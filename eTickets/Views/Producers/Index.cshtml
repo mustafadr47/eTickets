@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Actor>
+﻿@model IEnumerable<Producer>
 
 @{
-    ViewData["Title"] = "List of Actors";
+    ViewData["Title"] = "List of Producer";
 }
 <div class="row">
     <div class="col-md-8 offset-md-2">
@@ -9,7 +9,7 @@
         <table class="table">
             <thead>
                 <tr class="text-center">
-                    
+
                     <th>@Html.DisplayNameFor(model =>model.ProfilePictureURL)</th>
                     <th>@Html.DisplayNameFor(model =>model.FullName)</th>
                     <th>@Html.DisplayNameFor(model =>model.Bio)</th>
@@ -37,7 +37,7 @@
                     </tr>
                 }
             </tbody>
-            
+
 
         </table>
     </div>
