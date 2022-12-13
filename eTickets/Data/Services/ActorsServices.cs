@@ -3,39 +3,43 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eTickets.Data.Services
 {
-    public class ActorsServices /*: IActorsService*/
+    public class ActorsServices:IActorsService
     {
         private readonly AppDbContext _context;
         public ActorsServices(AppDbContext context)
         {
             _context = context;
         }
-        //public void Add(Actor actor)
-        //{
-        //    _context.Actors.Add(actor);
-        //    _context.SaveChanges();
-        //}
-
-        public void Delete(int id)
+        public async Task AddAsync(Actor actor)
         {
-            throw new NotImplementedException();
+            await _context.Actors.AddAsync(actor);
+            await _context.SaveChangesAsync();
         }
 
-        //public async Task<IEnumerable<Actor>> GetAll()
-        //{
-        //    //var result =await _context.Actors.ToListAsync();
-        //    //return result;
-            
-        //}
-
-        public Actor GetById(int id)
+        public async Task<IEnumerable<Actor>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var result = await _context.Actors.ToListAsync();
+            return result;
         }
 
-        public Actor Update(int id, Actor newActor)
+        public async Task<Actor> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Actors.FirstOrDefaultAsync(n => n.Id == id);
+            return result;
+        }
+      
+        public async Task<Actor> UpdateAsunc(int id, Actor newActor)
+        {
+            _context.Update(newActor);
+            await _context.SaveChangesAsync();
+            return newActor;
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var result = await _context.Actors.FirstOrDefaultAsync(n => n.Id == id);
+            _context.Actors.Remove(result);
+            await _context.SaveChangesAsync();
         }
     }
 }
