@@ -21,26 +21,51 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav ">
                         <li class="navbar-nav">
-                            <a class="nav-link text-dark" asp-controller="Movies" asp-action="Index"><i class="badge-info bi-film" ></i>Movies</a>
+                            <a class="nav-link text-dark" asp-controller="Movies" asp-action="Index"><i class="badge-info bi-film"></i>Movies</a>
                         </li>
-                        <li class="nav-item dropdown" >
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-gear"></i>Management                        
+                                <i class="bi bi-gear"></i>Management
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                             <a class="dropdown-item" asp-controller="Cinemas" asp-action="Index"><i class="bi bi-camera-reels"></i> Cinemas </a>
-                             <a class="dropdown-item" asp-controller="Producers" asp-action="Index"><i class="bi bi-headset"></i> Producers </a>
-                             <a class="dropdown-item" asp-controller="Actors" asp-action="Index"><i class="bi bi-person-square"></i> Actors </a>
+                                <a class="dropdown-item" asp-controller="Cinemas" asp-action="Index"><i class="bi bi-camera-reels"></i> Cinemas </a>
+                                <a class="dropdown-item" asp-controller="Producers" asp-action="Index"><i class="bi bi-headset"></i> Producers </a>
+                                <a class="dropdown-item" asp-controller="Actors" asp-action="Index"><i class="bi bi-person-square"></i> Actors </a>
                             </div>
 
-                        </li>                      
+                        </li>
                     </ul>
-                    <form asp-controller="Movies" asp-action="Filter">
-                        <input name="searchString" type="text" style="height:35px;"  placeholder="Search for a movie..." />
+                    <form asp-controller="Movies" asp-action="Filter" class="d-flex">
+                        <input name="searchString" type="text" class="form-control me-2" placeholder="Search for a movie..." />
                         <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
 
                     </form>
+
+                    <ul class="navbar-nav">
+                        @await Component.InvokeAsync("ShoppingCartSummary")
+                    </ul>
+
+                    @*User profile section*@
+@*
+                    <div class="dropdown navbar-nav">
+                        <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown"
+                                aria-expanded="false">
+                            <i class="bi bi-person-badge"></i> Hello User
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="profile-btn">
+                            <li>
+                                <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
+                                    <i class="bi bi-list"></i> Orders
+                                </a>
+                            </li>                
+                        </ul>
+                    </div>*@
+                 
+                    @*<partial name="_Identity.cshtml" />
+                    *@
                 </div>
+
+
             </div>
         </nav>
     </header>

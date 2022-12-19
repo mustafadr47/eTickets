@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Movie details";
 }
-<div class="row">
+<div class="container">
     <div class="col-md-8 offset-2">
         <div class="card mb-3">
             <div class="row g-0">
@@ -76,7 +76,7 @@
                             <a class="btn btn-outline-primary float-lg-end" asp-action="Index">
                                 Back to List
                             </a>
-                            <a class="btn btn-success text-white"><i class="bi bi-cart-plus"></i> Add to Cart (Price @Model.Price.ToString("c"))</a>
+                            <a class="btn btn-success text-white" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@Model.Id"><i class="bi bi-cart-plus"></i> Add to Cart (Price @Model.Price.ToString("c"))</a>
                         </p>
                     </div>
                 </div>
