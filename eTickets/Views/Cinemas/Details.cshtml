@@ -9,7 +9,7 @@
         </p>
         <div class="container">
             <div class="col-md-8 offset-2">
-      
+
                 <div class="mb-4 text-center">
                     <img id="LogoPreview" class="border-info rounded-circle" style="max-width: 150px" />
                 </div>
@@ -29,19 +29,23 @@
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <a class="btn btn-outline-success float-lg-end" asp-action="Edit" asp-route-id="@Model.Id" >Edit</a>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a class="btn btn-outline-success float-lg-end" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+
+                    }
                     <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
                 </div>
-                
+
             </div>
         </div>
     </div>
 </div>
 @section Scripts{
-        <script>
-            $(document).ready(function () {
+    <script>
+        $(document).ready(function () {
             var output = document.getElementById('LogoPreview');
             output.src = $("#Logo").val();
-            })
-        </script>
+        })
+    </script>
 }
