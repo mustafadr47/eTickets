@@ -1,11 +1,14 @@
 ﻿using eTickets.Data.Cart;
 using eTickets.Data.Services;
+using eTickets.Data.Static;
 using eTickets.Data.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
 namespace eTickets.Controllers
 {
+    [Authorize]
     public class OrdersController : Controller
     {
         private readonly IMoviesService _moviesService;
@@ -69,8 +72,6 @@ namespace eTickets.Controllers
             var items = _shoppingCart.GetShoppingCartItems();
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             string userEmailAddress = User.FindFirstValue(ClaimTypes.Email);
-            //string userId ="";
-            //string userEmailAddress = "";
 
             await _ordersService.StoreOrderAsync(items, userId, userEmailAddress);
             await _shoppingCart.ClearShoppingCartAsync();

@@ -3,11 +3,14 @@ using eTickets.Data.Services;
 using eTickets.Data.Static;
 using eTickets.Data.ViewModels;
 using eTickets.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace eTickets.Controllers
 {
+    
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userM;
@@ -21,6 +24,11 @@ namespace eTickets.Controllers
             _userM = userM;
             _sinInM = sinInM;
             _context = context;
+        }
+        public async Task<IActionResult> Users()
+        {
+            var users = await _context.Users.ToListAsync();
+            return View(users);
         }
         public IActionResult Login() => View(new LoginVM());
 
