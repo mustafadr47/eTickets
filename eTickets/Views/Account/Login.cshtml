@@ -5,6 +5,14 @@
     ViewData["Title"] = "Log in to your account";
 }
 
+
+@if (TempData["success"] != null)
+{
+    <div class="col-md-12 alert alert-success">
+        <span>@TempData["success"] </span>
+    </div>
+}
+
 <div class="container">
     <div class="col-md-6 offset-3">
         <p>

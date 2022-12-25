@@ -4,9 +4,12 @@ using eTickets.Data.Services;
 using eTickets.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,15 +24,39 @@ builder.Services.AddScoped<IOrdersService, OrdersService>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped(sc =>ShoppingCart.GetShoppingCart(sc));
 //Authenticatin and authorization
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(Options =>
+{ 
+    Options.Password.RequiredLength = 3;
+    Options.Password.RequireUppercase = false;
+    Options.Password.RequireLowercase = true;
+    Options.Password.RequireNonAlphanumeric = false;
+    Options.Password.RequireDigit = false;
+    Options.User.RequireUniqueEmail = true;
+}
+    ).AddEntityFrameworkStores<AppDbContext>();
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 });
-builder.Services.AddControllersWithViews();
 
+builder.Services.AddLocalization(Options =>Options.ResourcesPath ="Resources");
+builder.Services.AddMvc()
+    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+    .AddDataAnnotationsLocalization();
+builder.Services.Configure<RequestLocalizationOptions>(Options =>
+{
+    var supportedCultures = new[]
+    {
+        new CultureInfo("en-US"),
+        new CultureInfo("ar-SY"),
+        new CultureInfo("tr-TR")
+    };
+    Options.DefaultRequestCulture = new RequestCulture(culture: "tr", uiCulture: "tr");
+    Options.SupportedCultures= supportedCultures;
+    Options.SupportedUICultures= supportedCultures;
+});
 
 var app = builder.Build();
 app.UseSession();
@@ -45,6 +72,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+var options = ((IApplicationBuilder)app).ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>();
+
+app.UseRequestLocalization(options.Value);
 //Authenticatin and authorization
 app.UseAuthentication();
 app.UseAuthorization();

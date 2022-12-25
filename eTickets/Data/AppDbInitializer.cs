@@ -342,26 +342,26 @@ namespace eTickets.Data
                         Email = adminUserEmail,
                         EmailConfirmed = true
                     };
-                    await userManager.CreateAsync(newAdminUser, "Coding@1234?");
+                    await userManager.CreateAsync(newAdminUser, "sau");
                     await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
                 }
 
 
-                string appUserEmail = "user@sakarya.edu.tr";
+                //string appUserEmail = "user@sakarya.edu.tr";
 
-                var appUser = await userManager.FindByEmailAsync(appUserEmail);
-                if (appUser == null)
-                {
-                    var newAppUser = new ApplicationUser()
-                    {
-                        FullName = "Application User",
-                        UserName = "app-user",
-                        Email = appUserEmail,
-                        EmailConfirmed = true
-                    };
-                    await userManager.CreateAsync(newAppUser, "Sau");
-                    await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
-                }
+                //var appUser = await userManager.FindByEmailAsync(appUserEmail);
+                //if (appUser == null)
+                //{
+                //    var newAppUser = new ApplicationUser()
+                //    {
+                //        FullName = "Application User",
+                //        UserName = "app-user",
+                //        Email = appUserEmail,
+                //        EmailConfirmed = true
+                //    };
+                //    await userManager.CreateAsync(newAppUser, "Sau");
+                //    await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
+                //}
             }
            
         }

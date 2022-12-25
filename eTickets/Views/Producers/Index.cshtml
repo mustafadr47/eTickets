@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<Producer>
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
 @{
-    ViewData["Title"] = "List of Producer";
+    ViewData["Title"] = localizer["List of Producer"];
 }
 <div class="row">
     <div class="col-md-8 offset-md-2">

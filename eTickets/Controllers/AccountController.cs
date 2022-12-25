@@ -5,6 +5,7 @@ using eTickets.Data.ViewModels;
 using eTickets.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -47,6 +48,7 @@ namespace eTickets.Controllers
                     var result = await _sinInM.PasswordSignInAsync(user, loginVM.Password, false, false);
                     if (result.Succeeded)
                     {
+                        
                         return RedirectToAction("Index", "Movies");
                     }
                 }
@@ -82,9 +84,10 @@ namespace eTickets.Controllers
 
             if (newUserResponse.Succeeded)
             {
+                TempData["success"] = "Registration is Successful";
                 await _userM.AddToRoleAsync(newUser, UserRoles.User);
 
-                return View("RegisterCompleted");
+                return RedirectToAction("Login","Account");
             }
             else
             {
@@ -106,6 +109,14 @@ namespace eTickets.Controllers
         {
             return View();
         }
-
+        public IActionResult SetLanguage(string culture,string returnUrl)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1)}
+                );
+            return LocalRedirect(returnUrl);
+        }
     }
 }
