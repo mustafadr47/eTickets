@@ -117,25 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Biography" xml:space="preserve">
-    <value>السيرة الشخصية</value>
+  <data name="Cinema description is required" xml:space="preserve">
+    <value>Açıklama zorunlu</value>
   </data>
-  <data name="Biography is required" xml:space="preserve">
-    <value>السيرة الشخصية مطلوب</value>
+  <data name="Cinema Logo" xml:space="preserve">
+    <value>Sinema Logo</value>
   </data>
-  <data name="Full Name" xml:space="preserve">
-    <value>الاسم الكامل</value>
+  <data name="Cinema logo is required" xml:space="preserve">
+    <value>Sinema Logo zorunlu</value>
   </data>
-  <data name="Full Name is required" xml:space="preserve">
-    <value>الاسم الكامل مطلوب</value>
+  <data name="Cinema Name" xml:space="preserve">
+    <value>Sinema adı</value>
   </data>
-  <data name="Full Name must be between 3 and 50 chars" xml:space="preserve">
-    <value>الاسم الكامل بين3 و  50 حرف</value>
+  <data name="Cinema name is required" xml:space="preserve">
+    <value>Sinema adı zorunlu</value>
   </data>
-  <data name="Profile Picture" xml:space="preserve">
-    <value>صورة العرض</value>
-  </data>
-  <data name="Profile Picture is required" xml:space="preserve">
-    <value>صورة العرض مطلوب</value>
+  <data name="Description" xml:space="preserve">
+    <value>Açıklama</value>
   </data>
 </root>

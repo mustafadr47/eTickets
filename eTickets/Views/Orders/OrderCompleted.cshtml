@@ -1,8 +1,11 @@
-﻿<div class="container">
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
+
+<div class="container">
     <div class="col-md-6 offset-3 alert alert-success text-center">
-        <h2>Order completed successfully</h2>
-        <p>You can check all your orders in the Orders section of your profile</p>
+        <h2>@localizer["Order completed successfully"]</h2>
+        <p>@localizer["You can check all your orders in the Orders section of your profile"]</p>
         <hr />
-        <p>Thank you!</p>
+        <p>@localizer["Thank you!"]</p>
     </div>
 </div>

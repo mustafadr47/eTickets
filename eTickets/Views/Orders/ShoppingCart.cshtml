@@ -1,23 +1,25 @@
 ﻿@using eTickets.Data.ViewModels;
 @model ShoppingCartVM
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
 
 @{
-    ViewData["Title"] = "Shopping cart summary";
+    ViewData["Title"] = localizer["Shopping cart summary"];
 }
 <div class="container">
     <div class="container">
         <div class="col-md-8 offset-2">
             <div class="text-center">
-                <h2>You shopping cart summary</h2>
+                <h2>@localizer["You shopping cart summary"]</h2>
             </div>
 
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Selected amount</th>
-                        <th>Movie</th>
-                        <th>Price</th>
-                        <th>Subtotal</th>
+                        <th>@localizer["Selected amount"]</th>
+                        <th>@localizer["Movie"]</th>
+                        <th>@localizer["Price"]</th>
+                        <th>@localizer["Subtotal"]</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -46,7 +48,7 @@
                 <tfoot>
                     <tr>
                         <td colspan="2"></td>
-                        <td><b>Total:</b></td>
+                        <td><b>@localizer["Total:"]</b></td>
                         <td>
                             @Model.ShoppingCartTotal.ToString("c")
                         </td>
@@ -58,11 +60,11 @@
             <div>
 
                 <a class="btn btn-outline-primary" asp-action="CompleteOrder">
-                    Complete order
+                    @localizer["Complete order"]
                 </a>
 
                 <a class="btn btn-outline-success float-lg-end" asp-controller="Movies" asp-action="Index">
-                    Add more items
+                    @localizer["Add more items"]
                 </a>
 
             </div>

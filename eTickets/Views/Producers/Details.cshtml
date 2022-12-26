@@ -1,11 +1,13 @@
 ﻿@model Producer
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
 @{
-    ViewData["Title"] = "Details of the producer";
+    ViewData["Title"] = localizer["Details of the producer"];
 }
 <div class="container text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Details for @Model.FullName @Model.Id</h1>
+            <h1>@localizer["Details for"] @Model.FullName @Model.Id</h1>
         </p>
         <div class="container">
             <div class="col-md-8 offset-2">
@@ -31,10 +33,10 @@
                 <div class="mb-3">
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                        <a class="btn btn-outline-success float-lg-end" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                        <a class="btn btn-outline-success float-lg-end" asp-action="Edit" asp-route-id="@Model.Id">@localizer["Edit"]</a>
 
                     }
-                    <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+                    <a class="btn btn-outline-secondary" asp-action="Index">@localizer["Show All"]</a>
                 </div>
 
             </div>

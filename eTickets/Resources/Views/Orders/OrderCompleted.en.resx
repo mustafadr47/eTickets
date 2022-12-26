@@ -117,25 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Biography" xml:space="preserve">
-    <value>السيرة الشخصية</value>
+  <data name="Order completed successfully" xml:space="preserve">
+    <value>Order completed successfully</value>
   </data>
-  <data name="Biography is required" xml:space="preserve">
-    <value>السيرة الشخصية مطلوب</value>
+  <data name="Thank you!" xml:space="preserve">
+    <value>Thank you!</value>
   </data>
-  <data name="Full Name" xml:space="preserve">
-    <value>الاسم الكامل</value>
-  </data>
-  <data name="Full Name is required" xml:space="preserve">
-    <value>الاسم الكامل مطلوب</value>
-  </data>
-  <data name="Full Name must be between 3 and 50 chars" xml:space="preserve">
-    <value>الاسم الكامل بين3 و  50 حرف</value>
-  </data>
-  <data name="Profile Picture" xml:space="preserve">
-    <value>صورة العرض</value>
-  </data>
-  <data name="Profile Picture is required" xml:space="preserve">
-    <value>صورة العرض مطلوب</value>
+  <data name="You can check all your orders in the Orders section of your profile" xml:space="preserve">
+    <value>You can check all your orders in the Orders section of your profile</value>
   </data>
 </root>

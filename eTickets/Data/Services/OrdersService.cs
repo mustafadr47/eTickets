@@ -1,4 +1,5 @@
 ﻿using eTickets.Models;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 namespace eTickets.Data.Services
@@ -32,7 +33,7 @@ namespace eTickets.Data.Services
             };
             await _context.Orders.AddAsync(order);
             await _context.SaveChangesAsync();
-
+           
             foreach (var item in items)
             {
                 var orderItem = new OrderItem()

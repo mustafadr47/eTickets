@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Actions" xml:space="preserve">
-    <value>اكشن</value>
+    <value>الادوات</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>حذف</value>
@@ -130,6 +130,6 @@
     <value>تعديل</value>
   </data>
   <data name="List of Actors" xml:space="preserve">
-    <value>لائحة الاسماء</value>
+    <value>لائحة الممثلين</value>
   </data>
 </root>

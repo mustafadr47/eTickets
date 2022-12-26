@@ -1,11 +1,13 @@
 ﻿@model Actor
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
 @{
-    ViewData["Title"] = "Add a new actor";
+    ViewData["Title"] = localizer["Add a new actor"];
 }
 <div class="container text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Add a New Actor</h1>
+            <h1>@localizer["New Actors addition"]</h1>
         </p>
         <div class="container">
             <div class="col-md-8 offset-2">
@@ -30,8 +32,8 @@
                         <span asp-validation-for="Bio" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <input type="submit" value="Create" class="btn btn-outline-success float-lg-end" />
-                        <a class="btn btn-outline-secondary" asp-action="Index" asp-controller="Actors">Show All</a>
+                        <input type="submit" value="@localizer["Create"]" class="btn btn-outline-success float-lg-end" />
+                        <a class="btn btn-outline-secondary" asp-action="Index" asp-controller="Actors">@localizer["Show All"]</a>
                     </div>
                 </form>
             </div>
