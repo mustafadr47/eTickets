@@ -9,12 +9,10 @@ namespace eTickets.Data.Cart
 
         public string ShoppingCartId { get; set; }
         public List<ShoppingCartItem> ShoppingCartItems { get; set; }
-
         public ShoppingCart(AppDbContext context)
         {
             _context = context;
         }
-
         public static ShoppingCart GetShoppingCart(IServiceProvider services)
         {
             ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
@@ -25,7 +23,6 @@ namespace eTickets.Data.Cart
 
             return new ShoppingCart(context) { ShoppingCartId = cartId };
         }
-
         public void AddItemToCart(Movie movie)
         {
             var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Movie.Id == movie.Id && n.ShoppingCartId == ShoppingCartId);
@@ -47,7 +44,6 @@ namespace eTickets.Data.Cart
             }
             _context.SaveChanges();
         }
-
         public void RemoveItemFromCart(Movie movie)
         {
             var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Movie.Id == movie.Id && n.ShoppingCartId == ShoppingCartId);
@@ -65,14 +61,11 @@ namespace eTickets.Data.Cart
             }
             _context.SaveChanges();
         }
-
         public List<ShoppingCartItem> GetShoppingCartItems()
         {
             return ShoppingCartItems ?? (ShoppingCartItems = _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).Include(n => n.Movie).ToList());
         }
-
         public double GetShoppingCartTotal() => _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).Select(n => n.Movie.Price * n.Amount).Sum();
-
         public async Task ClearShoppingCartAsync()
         {
             var items = await _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).ToListAsync();

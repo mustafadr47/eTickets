@@ -12,7 +12,6 @@ namespace eTickets.Data.Services
         {
             _context = context;
         }
-
         public async Task AddNewMovieAsync(NewMovieVM data)
         {
             var newMovie = new Movie()
@@ -53,7 +52,6 @@ namespace eTickets.Data.Services
                 .FirstOrDefaultAsync(n => n.Id == id);
             return  movieDetails;
         }
-
         public async Task<NewMovieDropdownsVM> GetNewMovieDropdownsValues()
         {
             var response = new NewMovieDropdownsVM()
@@ -65,7 +63,6 @@ namespace eTickets.Data.Services
             
             return response;
         }
-
         public async Task UpdateMovieAsync(NewMovieVM data)
         {
             var dbMovie = await _context.Movies.FirstOrDefaultAsync(n => n.Id == data.Id);

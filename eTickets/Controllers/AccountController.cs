@@ -10,16 +10,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace eTickets.Controllers
-{
-    
+{   
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userM;
         private readonly SignInManager<ApplicationUser> _sinInM;
 
         private readonly AppDbContext _context;
-
-
         public AccountController(UserManager<ApplicationUser> userM, SignInManager<ApplicationUser> sinInM, AppDbContext context)
         {
             _userM = userM;
@@ -59,7 +56,6 @@ namespace eTickets.Controllers
             TempData["Error"] = "Wrong credentials. Please, try again!";
             return View(loginVM);
         }
-
         public IActionResult Register() => View(new RegisterVM());
 
         [HttpPost]
@@ -104,7 +100,6 @@ namespace eTickets.Controllers
             await _sinInM.SignOutAsync();
             return RedirectToAction("Index", "Movies");
         }
-
         public IActionResult AccessDenied(string ReturnUrl)
         {
             return View();

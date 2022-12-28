@@ -1,14 +1,24 @@
 ﻿@using eTickets.Data.Enums;
 @using eTickets.Data.ViewModels;
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
 @model NewMovieVM
+@using System.Globalization;
+@if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+      integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N"
+      crossorigin="anonymous">
+           <style>.cr{direction:rtl;}</style>
+}
 @{
-    ViewData["Title"] = "Update movie";
+    ViewData["Title"] = localizer["Update movie"];
 }
 
-<div class="row">
+<div class="row cr">
     <div class="col-md-8 offset-2">
         <p>
-            <h4>Update movie</h4>
+            <h4>@localizer["Uppdate movie"]</h4>
         </p>
 
         <div class="row">
@@ -80,8 +90,8 @@
                     </div>
 
                     <div class="mb-4">
-                        <input type="submit" value="Update" class="btn btn-outline-success float-lg-end" />
-                        <a class="btn btn-outline-secondary" asp-action="Index">Show all</a>
+                        <input type="submit" value="@localizer["Update"]" class="btn btn-outline-success float-lg-end" />
+                        <a class="btn btn-outline-secondary" asp-action="Index">@localizer["Show all"]</a>
                     </div>
 
                 </form>

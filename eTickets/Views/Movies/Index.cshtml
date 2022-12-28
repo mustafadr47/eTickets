@@ -1,8 +1,21 @@
 ﻿@model IEnumerable<Movie>
-@{
-    ViewData["Title"] = "List of Movies";
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
+@using System.Globalization;
+@if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+      integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N"
+      crossorigin="anonymous">
+    <style>
+        .cr {
+            direction: rtl;
+        }</style>
 }
-<div class="row">
+@{
+    ViewData["Title"] = localizer["List of Movies"];
+}
+<div class="row cr">
     @foreach (var item in Model)
     {
         <div class="col-md-4 col-xs-6 border-primary mb-3">
@@ -29,23 +42,23 @@
                     <div class="col-md-6">
                         <div class="card-body">
                             <p class="card-text">@item.Description</p>
-                            <p class="card-text"><b>Cinema: </b>@item.Cinema.Name</p>
-                            <p class="card-text"><b>Category: </b>@item.MovieCategory</p>
-                            <p class="card-text"><b>Start Date: </b>@item.StartDate.ToString("dd MMM yy")</p>
-                            <p class="card-text"><b>End Date: </b>@item.EndDate.ToString("dd MMM yy")</p>
+                            <p class="card-text"><b>@localizer["Cinema:"] </b>@item.Cinema.Name</p>
+                            <p class="card-text"><b>@localizer["Category:"] </b>@item.MovieCategory</p>
+                            <p class="card-text"><b>@localizer["Start Date:"] </b>@item.StartDate.ToString("dd MMM yy")</p>
+                            <p class="card-text"><b>@localizer["End Date:"] </b>@item.EndDate.ToString("dd MMM yy")</p>
                             <p class="card-text">
-                                <b>status: </b>
+                                <b>@localizer["status:"] </b>
                                 @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
                                 {
-                                    <span class="badge bg-success text-white">AVAILABLE</span>
+                                    <span class="badge bg-success text-white">@localizer["AVAILABLE"]</span>
                                 }
                                 else if (DateTime.Now > item.EndDate)
                                 {
-                                    <span class="badge bg-danger text-white">EXPIRED</span>
+                                    <span class="badge bg-danger text-white">@localizer["EXPIRED"]</span>
                                 }
                                 else
                                 {
-                                    <span class="badge bg-primary text-white">UPCOMING</span>
+                                    <span class="badge bg-primary text-white">@localizer["UPCOMING"]</span>
                                 }
                             </p>
                         </div>
@@ -54,9 +67,9 @@
                         <div class="card-footer ">
                             <p class="card-text">
                                 <a class="btn btn-outline-primary float-lg-end" asp-action="Details" asp-route-id="@item.Id">
-                                    <i class="bi bi-eye-fill"></i> show Detail
+                                    <i class="bi bi-eye-fill"></i>@localizer["show Detail"]
                                 </a>
-                                <a class="btn btn-success text-white" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id"><i class="bi bi-cart-plus"></i> Add to Cart (Price @item.Price.ToString("c"))</a>
+                                <a class="btn btn-success text-white" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id"><i class="bi bi-cart-plus"></i>@localizer["Add to Cart (Price"] @item.Price.ToString("c"))</a>
                             </p>
                         </div>
                     </div>

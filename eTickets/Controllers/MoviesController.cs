@@ -34,7 +34,6 @@ namespace eTickets.Controllers
 
                 return View("Index", filteredResultNew);
             }
-
             return View("Index", allMovies);
         }
         //Get: Movies/Details/1
@@ -67,7 +66,6 @@ namespace eTickets.Controllers
 
                 return View(movie);
             }
-
             await _service.AddNewMovieAsync(movie);
             return RedirectToAction(nameof(Index));
         }
@@ -115,7 +113,6 @@ namespace eTickets.Controllers
 
                 return View(movie);
             }
-
             await _service.UpdateMovieAsync(movie);
             return RedirectToAction(nameof(Index));
         }

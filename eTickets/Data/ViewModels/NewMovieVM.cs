@@ -18,7 +18,7 @@ namespace eTickets.Data.ViewModels
         [Display(Name = "Movie poster URL")]
         [Required(ErrorMessage = "Movie poster is required")]
         public string ImageURL { get; set; }
-        [Display(Name = " Movie start date")]
+        [Display(Name = "Movie start date")]
         [Required(ErrorMessage = "Start date is required")]
         public DateTime StartDate { get; set; }
         [Display(Name = "Movie end date")]

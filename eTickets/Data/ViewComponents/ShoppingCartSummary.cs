@@ -10,7 +10,6 @@ namespace eTickets.Data.ViewComponents
         {
             _shoppingCart = shoppingCart;
         }
-
         public IViewComponentResult Invoke()
         {
             var items = _shoppingCart.GetShoppingCartItems();

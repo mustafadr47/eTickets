@@ -1,7 +1,17 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer localizer
-
-<div class="container">
+@using System.Globalization;
+@if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+      integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N"
+      crossorigin="anonymous">
+    <style>
+        .cr {
+            direction: rtl;
+        }</style>
+}
+<div class="container cr">
     <div class="col-md-6 offset-3 alert alert-success text-center">
         <h2>@localizer["Order completed successfully"]</h2>
         <p>@localizer["You can check all your orders in the Orders section of your profile"]</p>

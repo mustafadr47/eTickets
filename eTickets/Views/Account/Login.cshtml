@@ -1,31 +1,35 @@
 ﻿@using eTickets.Data.ViewModels;
 @model LoginVM;
-
+@using System.Globalization;
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
 @{
-    ViewData["Title"] = "Log in to your account";
+    ViewData["Title"] = localizer["Log in to your account"];
 }
-
-
+@if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+      integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N"
+      crossorigin="anonymous">
+           <style>.cr{direction:rtl;}</style>
+}
 @if (TempData["success"] != null)
 {
     <div class="col-md-12 alert alert-success text-center">
         <span>@TempData["success"] </span>
     </div>
 }
-
-<div class="container">
+<div class="container  cr">
     <div class="col-md-6 offset-3">
         <p>
-            <h4>Log in to your account</h4>
+            <h4>@localizer["Log in to your account"]</h4>
         </p>
-
         @if (TempData["Error"] != null)
         {
             <div class="col-md-12 alert alert-danger">
-                <span><b>Sorry!</b> - @TempData["Error"] </span>
+                <span><b>@localizer["Sorry!"]</b> - @TempData["Error"] </span>
             </div>
         }
-
         <div class="container">
             <div class="col-md-8 offset-2">
                 <form asp-action="Login">
@@ -43,8 +47,8 @@
                     </div>
 
                     <div class="mb-4">
-                        <input class="btn btn-outline-success float-lg-end" type="submit" value="Log in" />
-                        <a class="btn btn-outline-secondary" asp-controller="Movies" asp-action="Index">Cancel</a>
+                        <input class="btn btn-outline-success float-lg-end" type="submit" value="@localizer["Log in"]" />
+                        <a class="btn btn-outline-secondary" asp-controller="Movies" asp-action="Index">@localizer["Cancel"]</a>
                     </div>
                 </form>
             </div>

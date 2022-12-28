@@ -26,7 +26,6 @@ namespace eTickets.Controllers
         public IActionResult Create()
         {
             return View();
-
         }
         [HttpPost]
         public async Task<IActionResult> Create([Bind("Logo,Name,Description")] Cinema cinema)

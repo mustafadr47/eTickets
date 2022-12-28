@@ -1,11 +1,22 @@
 ﻿@model List<Order>
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer localizer
+@using System.Globalization;
+@if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+{
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+      integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N"
+      crossorigin="anonymous">
+    <style>
+        .cr {
+            direction: rtl;
+        }</style>
+}
 @{
     ViewData["Title"] = localizer["All orders"];
 }
 
-<div class="container">
+<div class="container cr">
     <div class="col-md-8 offset-2">
         <p>
             <h4>@localizer["List of all your orders"]</h4>
