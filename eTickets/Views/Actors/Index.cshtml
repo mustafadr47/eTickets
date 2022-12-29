@@ -5,11 +5,23 @@
 @{
     ViewData["Title"] = localizer["List of Actors"];
 }
+<style>
+    .btn-outline-primary:hover {
+        background-color: #6f42c1;
+        border-color: blueviolet;
+        color: white;
+    }
+
+    .btn-outline-primary {
+        border-color: blueviolet;
+        color: blueviolet;
+    }
+</style>
 <div class="row">
     <div class="col-md-8 offset-md-2">
         <table class="table">
             <thead>
-                <tr class="text-center">
+                <tr class="text-center text-white">
 
                     <th>@Html.DisplayNameFor(model =>model.ProfilePictureURL)</th>
                     <th>@Html.DisplayNameFor(model =>model.FullName)</th>
@@ -24,7 +36,7 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
+                    <tr class="text-warning">
                         <td class="align-middle">
                             <img class="rounded-circle" src="@item.ProfilePictureURL" alt="@item.FullName" style="max-width: 150px" />
                         </td>

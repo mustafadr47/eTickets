@@ -4,16 +4,28 @@
 @{
     ViewData["Title"] = localizer["List of Cinema"];
 }
+<style>
+ .btn-outline-primary:hover
+ {
+     background-color:#6f42c1;
+        border-color: blueviolet;
+        color:white;
+    }
+    .btn-outline-primary {
+        border-color: blueviolet;
+        color: blueviolet;
+    }
+</style>
 <div class="row">
     <div class="col-md-8 offset-md-2">
 
         <table class="table">
             <thead>
-                <tr class="text-center">
+                <tr class="text-center text-white">
 
                     <th>@Html.DisplayNameFor(model =>model.Logo)</th>
-                    <th>@Html.DisplayNameFor(model =>model.Name)</th>
-                    <th>@Html.DisplayNameFor(model =>model.Description)</th>
+                    <th class="text-white">@Html.DisplayNameFor(model =>model.Name)</th>
+                    <th class="text-white">@Html.DisplayNameFor(model =>model.Description)</th>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
                         <th>@localizer["Actions"]</th>
@@ -24,8 +36,8 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td class="align-middle">
+                    <tr class="text-warning">
+                        <td class="align-middle ">
                             <img class="rounded-circle" src="@item.Logo" alt="@item.Name" style="max-width: 150px" />
                         </td>
                         <td class="align-middle">

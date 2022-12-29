@@ -12,7 +12,7 @@
     .ToList();
     var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}";
 }
-<div title="@localizer["Request culture provider:"] @requestCulture?.Provider?.GetType().Name">
+<div  title="@localizer["Request culture provider:"] @requestCulture?.Provider?.GetType().Name">
     <form id="selectLanguage" method="POST" asp-controller="Account" asp-action="SetLanguage"
           asp-route-returnUrl="@returnUrl">
         <select name="culture" class="form-select"

@@ -19,12 +19,12 @@
 <div class="container cr">
     <div class="col-md-8 offset-2">
         <p>
-            <h4>@localizer["List of all your orders"]</h4>
+            <h4 class="text-white">@localizer["List of all your orders"]</h4>
         </p>
 
         <table class="table">
             <thead>
-                <tr>
+                <tr class="text-white">
                     <th>@localizer["Order ID"]</th>
                     <th>@localizer["Items"]</th>
                     <th>@localizer["Total"]</th>
@@ -37,7 +37,7 @@
             <tbody>
                 @foreach (var order in Model)
                 {
-                    <tr>
+                    <tr class="text-warning">
                         <td class="align-middle">@order.Id</td>
                         <td class="align-middle">
                             <ul style="list-style-type:none">
@@ -45,7 +45,7 @@
                                 {
                                     <li>
                                         <div class="alert alert-info" role="alert">
-                                            <span class="badge bg-success">@item.Amount</span> [@item.Price.ToString("c")] - @item.Movie.Name
+                                            <span class="badge bg-warning">@item.Amount</span> [@item.Price.ToString("c")] - @item.Movie.Name
                                         </div>
                                     </li>
                                 }
@@ -56,7 +56,7 @@
                         </td>
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
-                            <td class="align-middle"> @order.User.FullName </td>
+                            <td class="align-middle text-warning"> @order.User.FullName </td>
                         }
                     </tr>
                 }

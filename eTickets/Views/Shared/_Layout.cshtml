@@ -24,11 +24,11 @@
   
 
 </head>
-<body class="cr">
+<body class="cr bg-black">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Movies" asp-action="Index">eTickets</a>
+                <a class="navbar-brand text-warning" asp-area="" asp-controller="Movies" asp-action="Index">eTickets</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -36,15 +36,15 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav" >
                         <li class="navbar-nav">
-                            <a class="nav-link text-dark" asp-controller="Movies" asp-action="Index"><i class="badge-info bi-film"></i>@localizer["Movies"]</a>
+                            <a class="nav-link text-warning" asp-controller="Movies" asp-action="Index"><i class="badge-info bi-film"></i>@localizer["Movies"]</a>
                         </li>
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <li class="nav-item dropdown text-white">
+                                <a class="nav-link dropdown-toggle text-warning" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-gear"></i>@localizer["Management"]
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu text-white" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" asp-controller="Cinemas" asp-action="Index"><i class="bi bi-camera-reels"></i>@localizer["Cinemas"]  </a>
                                     <a class="dropdown-item" asp-controller="Producers" asp-action="Index"><i class="bi bi-headset"></i>@localizer["Producers"] </a>
                                     <a class="dropdown-item" asp-controller="Actors" asp-action="Index"><i class="bi bi-person-square"></i>@localizer["Actors"] </a>
@@ -56,8 +56,8 @@
                     </ul>
                     <ul class="navbar-nav">
                         <form asp-controller="Movies" asp-action="Filter" class="d-flex ">
-                            <input name="searchString" type="text" class="form-control me-2" placeholder="@localizer["Search for a movie..."]" />
-                            <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+                            <input name="searchString" type="text" class="form-control me-2 " placeholder="@localizer["Search for a movie..."]" />
+                            <button class="btn btn-outline-warning" type="submit"><i class="bi bi-search"></i></button>
                         </form>
                         
                         
@@ -81,8 +81,8 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted  ">
-        <div class="container">
+    <footer class="border-top footer text-muted bg-black ">
+        <div class="container text-white">
             &copy; 2023 - eTickets
         </div>
     </footer>

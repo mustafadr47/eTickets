@@ -18,11 +18,11 @@
 <div class="container cr">
     <div class="col-md-8 offset-2">
         <div class="card mb-3">
-            <div class="row g-0">
+            <div class="row g-0 bg-dark">
                 <div class="col-md-12">
-                    <div class="card-header text-white bg-info">
-                        <p class="card-text">
-                            <h5 class="card-title">
+                    <div class="card-header text-white bg-warning">
+                        <p class="card-text ">
+                            <h5 class="card-title text-dark">
                                 @Model.Name
 
                             </h5>
@@ -33,7 +33,7 @@
                     <img src="@Model.ImageURL" alt="@Model.Name" style="width:100%;">
                 </div>
                 <div class="col-md-8">
-                    <div class="card-body">
+                    <div class="card-body text-white">
                         <p class="card-text">@Model.Description</p>
                         <p class="card-text">
                             <b>@localizer["Cinema:"] </b>
@@ -86,10 +86,10 @@
                 <div class="col-md-12">
                     <div class="card-footer ">
                         <p class="card-text">
-                            <a class="btn btn-outline-primary float-lg-end" asp-action="Index">
+                            <a class="btn btn-outline-light float-lg-end" asp-action="Index">
                                 @localizer["Back to List"]
                             </a>
-                            <a class="btn btn-success text-white" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@Model.Id"><i class="bi bi-cart-plus"></i>@localizer["Add to Cart (Price"] @Model.Price.ToString("c"))</a>
+                            <a class="btn btn-warning text-black" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@Model.Id"><i class="bi bi-cart-plus"></i>@localizer["Add to Cart (Price"] @Model.Price.ToString("c"))</a>
                         </p>
                     </div>
                 </div>
