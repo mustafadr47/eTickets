@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ApplicationUser>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
+@{
+    ViewData["Title"] = localizer["List of all users"];
+}
+
+<div class="container">
+    <div class="col-md-6 offset-3">
+        <p>
+            <h4 class="text-white">@localizer["List of alll users"]</h4>
+        </p>
+
+        <table class="table">
+            <thead>
+                <tr class="text-center text-white">
+                    <th>@Html.DisplayNameFor(model => model.FullName)</th>
+                    <th>@Html.DisplayNameFor(model => model.UserName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="text-warning">
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>

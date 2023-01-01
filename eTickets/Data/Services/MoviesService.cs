@@ -1,6 +1,7 @@
 ﻿using eTickets.Data.Base;
 using eTickets.Data.ViewModels;
 using eTickets.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace eTickets.Data.Services
@@ -98,5 +99,16 @@ namespace eTickets.Data.Services
             }
             await _context.SaveChangesAsync();
         }
+        public async Task DeleteMovieAsync(int id)
+        {
+            var movie = await _context.Movies.FindAsync(id);
+            if(movie!= null) {
+                _context.Movies.Remove(movie);            
+            }
+            await _context.SaveChangesAsync();
+
+        }
+
+     
     }
 }

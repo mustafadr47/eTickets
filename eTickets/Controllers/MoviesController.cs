@@ -116,5 +116,10 @@ namespace eTickets.Controllers
             await _service.UpdateMovieAsync(movie);
             return RedirectToAction(nameof(Index));
         }
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _service.DeleteMovieAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

@@ -29,7 +29,7 @@ else
             @if (User.IsInRole("Admin"))
             {
                 <li>
-                    <a class="dropdown-item" asp-controller="Account" asp-action="Users">
+                    <a class="dropdown-item" asp-controller="CallApi" asp-action="Index">
                         <i class="bi bi-people"></i>@localizer["Users"] 
                     </a>
                 </li>
