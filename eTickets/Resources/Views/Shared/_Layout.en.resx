@@ -135,4 +135,7 @@
   <data name="Search for a movie..." xml:space="preserve">
     <value>Search for a movie...</value>
   </data>
+  <data name="The site has designed by Mustafa Derwesh and Mahmoud Alabdolla" xml:space="preserve">
+    <value>The site has designed by Mustafa Derwesh and Mahmoud Alabdolla</value>
+  </data>
 </root>

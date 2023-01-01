@@ -135,4 +135,7 @@
   <data name="Search for a movie..." xml:space="preserve">
     <value>Bir film ara</value>
   </data>
+  <data name="The site has designed by Mustafa Derwesh and Mahmoud Alabdolla" xml:space="preserve">
+    <value>Mustafa Derviş ve Mahmoud Alabdolla Tarafından yapıldı</value>
+  </data>
 </root>

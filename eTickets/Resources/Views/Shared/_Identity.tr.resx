@@ -132,6 +132,9 @@
   <data name="Register" xml:space="preserve">
     <value>Kayıt ol</value>
   </data>
+  <data name="The site has designed by Mustafa Derwesh and Mahmoud Alabdolla" xml:space="preserve">
+    <value>Mustafa Derviş ve Mahmoud Alabdolla  Tarafından yapıldı</value>
+  </data>
   <data name="Users" xml:space="preserve">
     <value>Kullancılar</value>
   </data>

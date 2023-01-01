@@ -135,4 +135,7 @@
   <data name="Search for a movie..." xml:space="preserve">
     <value>ابحث عن فلم</value>
   </data>
+  <data name="The site has designed by Mustafa Derwesh and Mahmoud Alabdolla" xml:space="preserve">
+    <value>تم التصميم من قبل مصطفى درويش ومحمود العبدالله</value>
+  </data>
 </root>
